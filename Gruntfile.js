@@ -83,6 +83,7 @@ module.exports = function(grunt) {
 			}
 		}
 	});
+
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-less');
@@ -90,7 +91,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-shell');
 	grunt.loadNpmTasks('grunt-ftp-deploy');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
+
 	grunt.registerTask('build', ['jshint', 'uglify', 'less', 'cssmin', 'imagemin']);
 	grunt.registerTask('staging', ['jshint', 'uglify', 'less', 'cssmin', 'imagemin', 'ftp-deploy']);
 	grunt.registerTask('production', ['jshint', 'uglify', 'less', 'cssmin', 'imagemin', 'shell:production']);
+	grunt.registerTask('deploy', ['jshint', 'uglify', 'less', 'cssmin', 'imagemin', 'ftp-deploy', 'shell:production']);
 };
